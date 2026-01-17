@@ -1,111 +1,110 @@
-# 🫀 Cardiac Risk Prediction Dashboard
+# 🫀 Tableau de Bord de Prédiction du Risque Cardiaque
 
 🔗 **Application en ligne** :
 [https://projetml-ehdcul93spjgcrnycmvs84.streamlit.app/](https://projetml-ehdcul93spjgcrnycmvs84.streamlit.app/)
 
 ---
 
-## 📌 Project Overview
+## 📌 Présentation du projet
 
-This project presents a **Machine Learning–based dashboard** for predicting the **risk of coronary heart disease (CHD)** using clinical and lifestyle data.
-The application is built with **Python**, **scikit-learn**, and **Streamlit**, and follows a complete end-to-end Machine Learning workflow.
+Ce projet propose un **tableau de bord interactif basé sur le Machine Learning** permettant de prédire le **risque de maladie cardiaque (CHD)** à partir de données cliniques et comportementales.
 
-The goal is to demonstrate how predictive models can be trained, evaluated, and deployed in an interactive web application.
-
----
-
-## 🎯 Objectives
-
-* Perform exploratory data analysis on the CHD dataset
-* Build robust preprocessing pipelines for numerical and categorical data
-* Apply dimensionality reduction using **PCA**
-* Train and compare multiple supervised learning models
-* Handle class imbalance using **SMOTE**
-* Select and save the best-performing model
-* Deploy the final model in a **Streamlit dashboard**
+L’application est développée en **Python** et déployée avec **Streamlit**, en s’appuyant sur une chaîne complète de traitement en apprentissage automatique.
 
 ---
 
-## 📊 Dataset
+## 🎯 Objectifs du projet
 
-The project uses the **CHD (Coronary Heart Disease)** dataset, which contains patient-level clinical and behavioral data.
+* Réaliser une analyse exploratoire des données (EDA)
+* Mettre en place des pipelines de prétraitement robustes
+* Appliquer une réduction de dimension par **ACP**
+* Entraîner et comparer plusieurs modèles supervisés
+* Gérer le déséquilibre des classes avec **SMOTE**
+* Sélectionner et sauvegarder le meilleur modèle
+* Déployer le modèle final dans une application Streamlit interactive
 
-### Input Features
+---
 
-* Systolic blood pressure (SBP)
-* Tobacco consumption
-* LDL cholesterol
-* Adiposity
-* Type A behavior
-* Obesity
-* Alcohol consumption
-* Age
-* Family history of heart disease (`famhist`)
+## 📊 Jeu de données
 
-### Target Variable
+Le projet utilise le dataset **CHD (Coronary Heart Disease)**, qui contient des informations cliniques relatives à des patients.
+
+### Variables d’entrée
+
+* Pression artérielle systolique (SBP)
+* Consommation de tabac
+* LDL cholestérol
+* Adiposité
+* Comportement de type A
+* Obésité
+* Consommation d’alcool
+* Âge
+* Antécédents familiaux de maladies cardiaques (`famhist`)
+
+### Variable cible
 
 * `chd`
 
-  * `0` → No heart disease
-  * `1` → Presence of heart disease
+  * `0` → Absence de maladie cardiaque
+  * `1` → Présence de maladie cardiaque
 
 ---
 
-## ⚙️ Machine Learning Pipeline
+## ⚙️ Pipeline de Machine Learning
 
-The project is implemented using **scikit-learn Pipelines**, ensuring reproducibility and preventing data leakage.
+Le projet est implémenté à l’aide de **pipelines scikit-learn**, garantissant la reproductibilité et l’absence de fuite de données.
 
-### Main steps:
+### Étapes principales :
 
-1. **Data preprocessing**
+1. **Prétraitement des données**
 
-   * Missing value imputation
-   * Standardization of numerical features
-   * One-Hot Encoding of categorical variables
-2. **Dimensionality reduction**
+   * Imputation des valeurs manquantes
+   * Standardisation des variables numériques
+   * Encodage One-Hot des variables catégorielles
+2. **Réduction de dimension**
 
-   * Principal Component Analysis (PCA) with 90% explained variance
-3. **Modeling**
+   * Analyse en Composantes Principales (ACP) avec 90 % de variance expliquée
+3. **Modélisation**
 
-   * Logistic Regression (with and without PCA)
+   * Régression logistique (avec et sans ACP)
    * K-Nearest Neighbors (KNN)
-4. **Class imbalance handling**
+4. **Gestion du déséquilibre**
 
    * SMOTE (Synthetic Minority Over-sampling Technique)
-5. **Hyperparameter optimization**
+5. **Optimisation**
 
-   * GridSearchCV
-6. **Model selection and serialization**
+   * Recherche des hyperparamètres avec GridSearchCV
+6. **Sauvegarde**
 
-   * Final model saved as `Model.pkl`
-
----
-
-## 🖥️ Streamlit Dashboard
-
-The deployed application allows users to:
-
-* Enter patient clinical information
-* Run real-time predictions
-* View:
-
-  * Predicted cardiac risk (High / Low)
-  * Estimated probability of heart disease
-
-The interface is designed as a **minimal admin-style dashboard**, focusing on clarity, usability, and stability.
+   * Modèle final sauvegardé sous `Model.pkl`
 
 ---
 
-## 🚀 Deployment
+## 🖥️ Application Streamlit
 
-The application is deployed using **Streamlit Cloud**.
+L’application Streamlit permet à l’utilisateur de :
 
-🔗 **Live App**:
+* Saisir les informations cliniques d’un patient
+* Lancer une prédiction en temps réel
+* Visualiser :
+
+  * Le niveau de risque cardiaque (faible / élevé)
+  * La probabilité associée à la prédiction
+
+L’interface adopte un **design de type tableau de bord**, simple, professionnel et orienté lisibilité.
+
+---
+
+## 🚀 Déploiement
+
+L’application est déployée sur **Streamlit Cloud**.
+
+🔗 **Accès à l’application** :
 [https://projetml-ehdcul93spjgcrnycmvs84.streamlit.app/](https://projetml-ehdcul93spjgcrnycmvs84.streamlit.app/)
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Technologies utilisées
 
 * Python 3
 * pandas, numpy
@@ -116,27 +115,28 @@ The application is deployed using **Streamlit Cloud**.
 
 ---
 
-## 📁 Project Structure
+## 📁 Structure du projet
 
 ```
-├── train_model.py        # Model training and selection
-├── app.py                # Streamlit application
-├── CHD.csv               # Dataset
-├── Model.pkl             # Trained model
-├── requirements.txt      # Dependencies
-└── README.md             # Project documentation
+├── train_model.py        # Entraînement et sélection du modèle
+├── app.py                # Application Streamlit
+├── CHD.csv               # Jeu de données
+├── Model.pkl             # Modèle entraîné
+├── requirements.txt      # Dépendances
+└── README.md             # Documentation
 ```
 
 ---
 
-## 📌 How to Run Locally
+## ▶️ Exécution en local
 
 ```bash
-# Install dependencies
+# Installation des dépendances
 pip install -r requirements.txt
 
-# Train the model
+# Entraînement du modèle
 python train_model.py
 
-# Launch the Streamlit app
+# Lancement de l'application
 streamlit run app.py
+
